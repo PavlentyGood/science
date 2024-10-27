@@ -10,10 +10,10 @@ class FactorialKtTest {
     @Test
     fun factorial() {
         listOf<(Int) -> Int>(
-            ::factorial1,
-            ::factorial2,
-            ::factorial3,
-            ::factorial5
+            ::fact1,
+            ::fact2,
+            ::fact3,
+            ::fact5
         ).forEach { f ->
             f(0) shouldBe 1
             f(1) shouldBe 1
@@ -21,11 +21,11 @@ class FactorialKtTest {
             f(12) shouldBe 479001600
         }
 
-        factorial4(0) shouldBeRight 1
-        factorial4(1) shouldBeRight 1
-        factorial4(5) shouldBeRight 120
-        factorial4(12) shouldBeRight 479001600
+        fact4(0) shouldBeRight 1
+        fact4(1) shouldBeRight 1
+        fact4(5) shouldBeRight 120
+        fact4(12) shouldBeRight 479001600
 
-        shouldThrow<IllegalArgumentException> { factorial5(-1) }
+        shouldThrow<IllegalArgumentException> { fact5(-1) }
     }
 }
