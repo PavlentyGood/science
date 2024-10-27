@@ -1,4 +1,4 @@
-package ru.pavlentygood.science
+package ru.pavlentygood.science.list
 
 import io.kotest.assertions.arrow.core.shouldBeLeft
 import io.kotest.assertions.arrow.core.shouldBeRight

@@ -1,13 +1,8 @@
-package ru.pavlentygood.science
+package ru.pavlentygood.science.list
 
 import arrow.core.Either
 import arrow.core.left
 import arrow.core.right
-
-data class List<A>(
-    val head: A,
-    val tail: List<A>?
-)
 
 tailrec fun <A> get1(list: List<A>, i: Int): A =
     if (i == 0) list.head
