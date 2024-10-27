@@ -11,3 +11,6 @@ fun length2(list: List<*>?): Int {
 
     return lengthIter(list, 0)
 }
+
+fun <A> List<A>.length3(): Int =
+    1 + (tail?.length3() ?: 0)

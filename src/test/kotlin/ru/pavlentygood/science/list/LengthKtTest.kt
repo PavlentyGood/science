@@ -14,5 +14,8 @@ class LengthKtTest {
         length2(null) shouldBe 0
         length2(List(1, null)) shouldBe 1
         length2(List(1, List(1, null))) shouldBe 2
+
+        List(1, null).length3() shouldBe 1
+        List(1, List(1, null)).length3() shouldBe 2
     }
 }
