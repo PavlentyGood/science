@@ -37,3 +37,11 @@ fun fact5(n: Int): Int {
     return if (n in 0..1) 1
     else n * fact1(n - 1)
 }
+
+fun fact6(n: Int): Int {
+    require(n >= 0) { "error" }
+    return when {
+        n == 0 -> 1
+        else -> (1..n).reduce { acc, i -> acc * i }
+    }
+}
