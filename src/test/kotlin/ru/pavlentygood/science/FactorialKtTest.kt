@@ -13,7 +13,8 @@ class FactorialKtTest {
             ::fact1,
             ::fact2,
             ::fact3,
-            ::fact5
+            ::fact5,
+            ::fact6
         ).forEach { f ->
             f(0) shouldBe 1
             f(1) shouldBe 1
