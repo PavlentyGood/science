@@ -4,16 +4,12 @@ import java.util.*
 
 /*
 Пример работы с балансом в стиле ФП при помощи последовательностей (стримов).
-Функция принимает начальный баланс и итератор от бесконечной последовательности сумм занесения на баланс,
+Функция принимает начальный баланс и бесконечную последовательность сумм занесения на баланс,
 а возвращает бесконечную последовательность значений баланса.
  */
-fun deposit(balance: Int, amountsIterator: Iterator<Int>): Sequence<Int> {
-    return sequence {
-        yield(balance)
-        yieldAll(deposit(
-            balance = balance + amountsIterator.next(),
-            amountsIterator = amountsIterator
-        ))
+fun deposit(startBalance: Int, amounts: Sequence<Int>): Sequence<Int> {
+    return amounts.runningFold(startBalance) { balance, amount ->
+        balance + amount
     }
 }
 
@@ -21,9 +17,6 @@ fun deposit(balance: Int, amountsIterator: Iterator<Int>): Sequence<Int> {
 Пример использования функции deposit в виде консольного приложения,
 где в бесконечном цикле на экран выводится текущий баланс
 и пользователь вводит сумму, которую хочет внести на баланс.
-
-Таким образом при помощи функции deposit мы моделируем изменяющийся во времени баланс,
-однако, делаем это, не применяя присваивание.
  */
 fun main() {
     val scanner = Scanner(System.`in`)
@@ -32,8 +25,8 @@ fun main() {
         scanner.nextLine().toInt()
     }
     val balances = deposit(
-        balance = 50,
-        amountsIterator = amounts.iterator()
+        startBalance = 50,
+        amounts = amounts
     )
     balances.forEach {
         println("balance: $it")
