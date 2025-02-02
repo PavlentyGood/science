@@ -40,6 +40,7 @@ fun deposit(balance: Int, amountsIterator: Iterator<Int>): Sequence<Int> {
 fun main() {
     val scanner = Scanner(System.`in`)
     val amounts = generateSequence {
+        print("enter amount to deposit: ")
         scanner.nextLine().toInt()
     }
     val balances = deposit(
@@ -48,6 +49,5 @@ fun main() {
     )
     balances.forEach {
         println("balance: $it")
-        print("enter amount to deposit: ")
     }
 }
