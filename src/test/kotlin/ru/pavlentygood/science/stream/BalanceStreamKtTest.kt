@@ -3,18 +3,10 @@ package ru.pavlentygood.science.stream
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 
-class BalanceKtTest {
+class BalanceStreamKtTest {
 
     @Test
-    fun `deposit with object`() {
-        val account = Account(balance = 30)
-        account.getBalance() shouldBe 30
-        account.deposit(2)
-        account.getBalance() shouldBe 32
-    }
-
-    @Test
-    fun `deposit with sequence`() {
+    fun `deposit stream`() {
         val amounts = generateSequence { 2 }
         val balances = deposit(
             balance = 30,

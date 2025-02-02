@@ -7,14 +7,19 @@ import java.util.*
 Присутствует проблема смешения ответственности: консольный интерфейс вперемешку с логикой работы баланса
  */
 tailrec fun deposit(balance: Int, scanner: Scanner): Int {
+    println("balance: $balance")
     print("enter amount to deposit: ")
     val amount = scanner.nextLine().toInt() // также прямо здесь присутствует ссылочно непрозрачная функция nextLine
-    val newBalance = balance + amount
-    println("balance: $newBalance")
-    return deposit(newBalance, scanner)
+    return deposit(
+        balance = balance + amount,
+        scanner = scanner
+    )
 }
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    deposit(balance = 30, scanner = scanner)
+    deposit(
+        balance = 50,
+        scanner = scanner
+    )
 }
